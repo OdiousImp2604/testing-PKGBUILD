@@ -1,0 +1,15 @@
+# Maintainer: Aryan    <aryanpothu@tutanota.com>
+pkgname=endeavouros-ce-sway
+pkgver=1.0
+pkgrel=1
+pkgdesc='Default EndeavourOS Community Edition Sway config files'
+arch=('any')
+url='https://www.endeavouros.com'
+license=('GPL3')
+source=("${pkgname}-${pkgver}.${pkgrel}.tar.gz::https://github.com/EndeavourOS-Community-Editions/sway/archive/${pkgver}.${pkgrel}.tar.gz")
+sha512sums=('SKIP')
+
+package() {
+    install -dm 755 $pkgdir/etc/skel
+    cp -r --no-preserve=ownership ${pkgname}-${pkgver}.${pkgrel}/etc/skel $pkgdir/etc/
+}
