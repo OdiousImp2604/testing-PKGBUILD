@@ -35,7 +35,7 @@ package() {
     install -Dm644 ".gtkrc-2.0" "${pkgdir}${PREFIX}/.gtkrc-2.0"
     install -Dm644 "setup.sh" "${pkgdir}${PREFIX}/setup.sh"
     install -Dm644 "xed.dconf" "${pkgdir}${PREFIX}/xed.dconf"
-    install -Dm755 "sway-install.sh" "${pkgdir}${PREFIX}/bspwm-install.sh"
+    install -Dm755 "sway-install.sh" "${pkgdir}${PREFIX}/sway-install.sh"
     install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE.md"
 }
 ```
