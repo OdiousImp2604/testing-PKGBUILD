@@ -10,12 +10,12 @@ https://termbin.com/i0m0
 # Contributor: The-Repo-Club <The-Repo-Club@github.com>
 
 _pkgname=sway
-pkgname=sway-configs
+pkgname=eos-ce-sway
 pkgver=r137.58a4845
 pkgrel=1
-pkgdesc="CE configs for the tiling wayland compositor sway"
+pkgdesc="pre user creation skel setup for sway eos-ce"
 arch=('any')
-groups=('EndeavourOS')
+groups=('eos-ce')
 url="https://github.com/EndeavourOS-Community-Editions/${pkgname}"
 license=('custom:GPL')
 depends=('git')
