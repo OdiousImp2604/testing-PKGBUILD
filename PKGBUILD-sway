@@ -1,42 +1,32 @@
-made by https://github.com/The-Repo-Club
 
-https://github.com/The-Repo-Club/PKGBUILD/
-
-https://termbin.com/i0m0
-
-```
-# Maintainer: killajoe <archlinux@kamprad.net>
-# Contributor: killajoe <archlinux@kamprad.net>
+# Maintainer: joekamprad <joekamprad@endeavouros.com>
 # Contributor: The-Repo-Club <The-Repo-Club@github.com>
 
-_pkgname=sway
+_pkgname=eos-ce-sway
 pkgname=eos-ce-sway
-pkgver=r137.58a4845
+pkgver=138.6dc7019
 pkgrel=1
-pkgdesc="pre user creation skel setup for sway eos-ce"
+pkgdesc="pre user creation skel setup for eos-sway-ce"
 arch=('any')
 groups=('eos-ce')
-url="https://github.com/EndeavourOS-Community-Editions/${pkgname}"
-license=('custom:GPL')
+url="https://github.com/endeavouros-team/${_pkgname}"
+license=('GPL')
 depends=('git')
-source=("${_pkgname}::git+https://github.com/EndeavourOS-Community-Editions/${_pkgname}.git")
+source=("${_pkgname}::git+https://github.com/endeavouros-team/${_pkgname}.git#branch=next")
 sha256sums=('SKIP')
 
 pkgver() {
   cd "$_pkgname"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
     PREFIX=/etc/skel
     cd "$_pkgname"
     mkdir -p "${pkgdir}${PREFIX}/.config/"
-    chmod +x .config/sway/scripts
-    chmod +x .config/waybar/scripts
-    chmod +x .config/wofi/windows.py
     cp -R ".config/" "${pkgdir}${PREFIX}/"
     install -Dm644 ".gtkrc-2.0" "${pkgdir}${PREFIX}/.gtkrc-2.0"
+    install -Dm644 ".nanorc" "${pkgdir}${PREFIX}/.nanorc"
+    install -Dm755 "set_once.sh" "${pkgdir}${PREFIX}/set_once.sh"
     install -Dm644 "xed.dconf" "${pkgdir}${PREFIX}/xed.dconf"
-    install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE.md"
 }
-```
